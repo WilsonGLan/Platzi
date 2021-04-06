@@ -1,3 +1,6 @@
+#Otros
+workspace.platzi.code-workspace
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
