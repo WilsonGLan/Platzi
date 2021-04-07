@@ -1,3 +1,6 @@
+def conversion(pesos, dolar):
+    return pesos/dolar
+
 menu = """
 Bienvenido al conversor de moneda 
 
@@ -8,21 +11,16 @@ Bienvenido al conversor de moneda
 Elije una opción: """
 
 opcion = int(input(menu))
-valor_dolar_co = 3875
-valor_dolar_ar = 65
-valor_dolar_mx = 24
-
 pesos = float(input("Por favor ingrese el valor en pesos que desea convertir: "))
 
-
 if opcion == 1:
-    dolares = pesos / valor_dolar_co
+    dolares = conversion(pesos, 3875)
 elif opcion == 2:
-    dolares = pesos / valor_dolar_ar
+    dolares = conversion(pesos, 65)
 elif opcion == 3:
-    dolares = pesos / valor_dolar_mx
+    dolares = conversion(pesos, 24)
 else:
     print("ingresa una opción correcta")
 
-
 print(f"Es equivalente a ${round(dolares,2)} dolares")
+
