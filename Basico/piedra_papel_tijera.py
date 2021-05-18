@@ -20,18 +20,36 @@ def winner(machine, human):
 
 
 def run():
-    select_human = int(input('What do you choose? Type:\n0 for Rock,\n1 for Scissors,\n2 for Paper\n====>>> Human\t: '))
-    select_computer = r.choice([0,1,2])
-    print('====>>> Computer:', select_computer)
+    score_human = 0
+    score_computer = 0
+    challenge = 0
+    while challenge < 3:
+        select_human = int(input('What do you choose? Type:\n0 for Rock,\n1 for Scissors,\n2 for Paper\n====>>> Human\t: '))
+        select_computer = r.choice([0,1,2])
 
-    if select_human != select_computer:
-        result = winner(select_computer, select_human)
-        if result:
-            print("Your lose")
+        print('====>>> Computer:', select_computer)
+
+        if select_human != select_computer:
+            result = winner(select_computer, select_human)
+            if result:
+                score_computer += 1
+                print("######  Your lose  ######\n")
+            else:
+                score_human += 1
+                print("######  Your win  ######\n")
         else:
-            print("Your win")
-    else:
-        print("tie, repeat")
+            print("######  Tie, repeat  ######\n")
+        
+        if score_computer == 2 and score_human < 2:
+            print("The winner is the machine")
+            break
+        elif score_computer < 2 and score_human == 2:
+            print("The winner is you")
+            break
+        elif challenge == 3 and (score_computer and score_human == 1):
+            challenge -= 1
+
+    
 
 if __name__ == '__main__':
     run()    
